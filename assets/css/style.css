@@ -1,0 +1,100 @@
+.container{
+    background-color: rgb(246, 246, 246);
+    
+}
+header{
+    background-color: #520452;  
+}
+.nav-link{
+    color: #f6eefa;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 20 5px;
+    margin-left: 5px;
+}
+.nav-link:hover{
+    font-weight: 600;
+    border: 1px solid #d69af1;
+    border-radius: 20px;
+    padding: 5px 20px;
+    margin-left: 5px;
+    background-color: #f6eefa;
+    color: #520452;
+    
+}
+.profile-image{
+    margin-bottom: 150px;
+}
+.image{
+    border-radius: 15px;
+}
+.image-placeholder{
+    align-items: center;
+   
+}        
+.about-section {
+    padding: 100px 0;
+    max-width: 800px;
+    margin: 100px auto;
+}
+
+.name-title {
+    font-size: 2.0rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.role {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.content-block {
+    margin-bottom: 2.5rem;
+}
+
+.highlight {
+    background: linear-gradient(120deg, #e0f2fe 0%, #e0f2fe 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.3em;
+    background-position: 0 88%;
+    padding: 0 0.1em;
+    font-weight: 600;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.tech-item {
+    background-color: var(--light-bg);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #d69af1;
+}
+.custom-card{
+    border-radius: 20px;
+   
+}
+
+.btn{
+    border-radius: 25px;
+    border: 1px solid #d69af1;
+
+}
+
+.card-img img{
+    margin-top: 20px;
+    border-radius: 100%;
+    width: 100px;
+    border: 5px solid #b8c9d1;
+    
+}
+
+
