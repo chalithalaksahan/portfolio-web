@@ -43,7 +43,13 @@ header{
     max-width: 800px;
     margin: 100px auto;
 }
-
+.project-section {
+    padding: 100px 0;
+}
+.home-section {
+    padding: 100px 0;
+    margin-bottom: auto;
+}
 .name-title {
     font-size: 2.0rem;
     font-weight: 700;
@@ -93,6 +99,11 @@ header{
     border-radius: 25px;
     border: 1px solid #d69af1;
 
+}
+.name{
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
 }
 
 .card-img img{

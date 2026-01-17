@@ -17,24 +17,28 @@
 
 <body>
     <div class="container">
-        <header class="z-3 d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom position-sticky top-0">
-            <div class="col-md-3 mb-2 mb-md-0">
-                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none"> </a>
+    <header class="d-flex align-items-center justify-content-between py-3 mb-4 border-bottom position-sticky top-0 z-3">
+        <!-- Left spacer -->
+        <div class="col-md-3"></div>
+        
+        <!-- Center content - name and buttons in same row -->
+        <div class="d-flex align-items-center gap-3 position-sticky">
+            <a href="#home" class="text-decoration-none">Chalitha Laksahan</a>
+            <div class="d-flex gap-2">
+                <a href="#project" class="btn nav-link">Projects</a>
+                <a href="#about" class="btn nav-link">About</a>
+                <a href="#contact" class="btn nav-link">Contact</a>
             </div>
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center gap-2 mb-md-0">
-                <li><a href="#" class="btn nav-link">Home</a></li>
-                <li><a href="#project" class="btn nav-link">Projects</a></li>
-                <li><a href="#about" class="btn nav-link ">About</a></li>
-                <li><a href="#contact" class="btn nav-link ">Contact</a></li>
-            </ul>
-            <div class="col-md-3 text-end">
+        </div>
+        
+        <!-- Right spacer -->
+        <div class="col-md-3"></div>
+    </header>
 
-            </div>
-        </header>
     
     <!-- -----------------------------------------------Hero------------------------------------------------------------------ -->
-
-    <div class="px-4 pt-5 my-5 text-center border-bottom">
+    <section id="home" class="home-section">
+    <div class="text-center border-bottom">
         <h3>I transform visionary ideas into seamless, high-impact digital experiences <br>for founders ready to lead the
             future.</h3>
         <h1 class="display-4 fw-bold text-body-emphasis">Chalitha Laksahan</h1>
@@ -49,15 +53,17 @@
                         class="btn btn-outline-secondary btn-lg px-4"><i class="bi bi-github"> </i>GitHub</button> </a>
             </div>
         </div>
-        <div class="overflow-hidden" style="max-height: 30vh;">
+        <div class="overflow-hidden" >
             <div class="container px-5"> <img src="assets/img/cover.jpg" class="img-fluid border rounded-3 shadow-lg mb-4"
-                    alt="Example image" width="700" height="500" loading="lazy"> </div>
+                    alt="Example image" width="700" height="500" loading="lazy"> 
+            </div>
         </div>
     </div>
+    </section>
     <!-- ------------------------------------------------Project-------------------------------------------------------------- -->
-    <section id="project">
-        <div  class="album py-5 bg-body-tertiary">
-            <div class="container">
+    <section id="project" class="project-section">
+        <div  class="album bg-body-tertiary">
+            <div class="container" >
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div class="col" data-aos="zoom-in-up">
                         <div class="card shadow-sm"> <img src="assets/img/Sri Sangabodhi college.png">
