@@ -28,6 +28,7 @@ header{
     color: #520452;
     
 }
+
 .profile-image{
     margin-bottom: 150px;
 }
@@ -88,7 +89,7 @@ header{
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.9rem;
-    border: 1px solid #d69af1;
+    border: 1px solid #7ed6df;
 }
 .custom-card{
     border-radius: 20px;
@@ -97,7 +98,7 @@ header{
 
 .btn{
     border-radius: 25px;
-    border: 1px solid #d69af1;
+    border: 1px solid #7ed6df;
 
 }
 .name{
@@ -112,6 +113,16 @@ header{
     width: 100px;
     border: 5px solid #b8c9d1;
     
+}
+
+
+.navb a.btn {
+    border-radius: 20px;
+    transition: background-color 0.2s;
+}
+
+.navb a.btn:hover {
+    background-color: #f0f0f0;
 }
 
 
