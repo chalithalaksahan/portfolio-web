@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,6 @@
     <meta name="author" content="Chalitha Laksahan">
     <meta name="keywords" content="software engineer, java developer, web developer, portfolio, Chalitha Laksahan">
     
-    <!-- Open Graph tags for social sharing -->
     <meta property="og:title" content="Chalitha Laksahan - Aspiring Software Engineer">
     <meta property="og:description" content="Aspiring Software Engineer specializing in Java and web development">
     <meta property="og:type" content="website">
@@ -16,7 +15,6 @@
     <title>Chalitha Laksahan - Aspiring Software Engineer</title>
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     
-    <!-- Preconnect to external domains for performance -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://unpkg.com">
     
@@ -26,156 +24,482 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     
-  
+    <style>
+        /* Base & Theme Transitions */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Dark Mode Specific Adjustments */
+        [data-bs-theme="dark"] .bg-white {
+            background-color: #212529 !important;
+        }
+        [data-bs-theme="dark"] .text-dark {
+            color: #f8f9fa !important;
+        }
+        [data-bs-theme="dark"] .stat-box {
+            background-color: #2b3035;
+            color: #f8f9fa;
+        }
+        [data-bs-theme="dark"] .stat-number {
+            color: #f8f9fa;
+        }
+        [data-bs-theme="dark"] .btn-primary-custom {
+            background: #f8f9fa;
+            color: #212529;
+        }
+        [data-bs-theme="dark"] .btn-primary-custom:hover {
+            background: #e9ecef;
+            box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+        }
+        [data-bs-theme="dark"] .btn-outline-custom {
+            border-color: #f8f9fa;
+            color: #f8f9fa;
+        }
+        [data-bs-theme="dark"] .btn-outline-custom:hover {
+            background: #f8f9fa;
+            color: #212529;
+        }
+        [data-bs-theme="dark"] .scroll-indicator i {
+            color: #f8f9fa;
+        }
+
+        /* Navbar Enhancements */
+        .navb a.btn {
+            border-radius: 20px;
+            transition: background-color 0.2s;
+        }
+        [data-bs-theme="light"] .navb a.btn:hover {
+            background-color: #f0f0f0;
+        }
+        [data-bs-theme="dark"] .navb a.btn:hover {
+            background-color: #343a40;
+            color: white;
+        }
+        
+        /* Hero Enhancements */
+        .home-section {
+            padding: 80px 0;
+            margin-bottom: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg-shape {
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 50%;
+            height: 120%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            z-index: 0;
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        [data-bs-theme="dark"] .hero-bg-shape {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        }
+
+        @keyframes morph {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+
+        .hero-img-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-img-wrapper img {
+            border: 6px solid var(--bs-body-bg);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: border-color 0.3s ease;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110%;
+            height: 110%;
+            background: radial-gradient(circle, rgba(102,126,234,0.4) 0%, rgba(118,75,162,0) 70%);
+            z-index: -1;
+            filter: blur(20px);
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #28a745;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: blink 1.5s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        .scroll-indicator i {
+            font-size: 32px;
+            color: #212529;
+            opacity: 0.6;
+            transition: color 0.3s;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        /* Stats boxes */
+        .stats-container {
+            margin: 30px 0;
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #212529;
+            margin: 0;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin: 0;
+        }
+        
+        /* Buttons */
+        .btn-primary-custom {
+            background: #212529;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            background: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            color: white;
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid #212529;
+            color: #212529;
+            padding: 10px 30px;
+            border-radius: 8px;
+            background: transparent;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-custom:hover {
+            background: #212529;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Project cards enhancement */
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Profile Image Styles */
+        .profile-image-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .profile-image-border {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            animation: rotate 3s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .profile-image .image {
+            border: 5px solid var(--bs-body-bg);
+            border-radius: 50%;
+            transition: border-color 0.3s ease;
+        }
+        
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #212529;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        #backToTop:hover {
+            background-color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+
+        [data-bs-theme="dark"] #backToTop {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        
+        .learning-badge {
+            background: rgba(255, 193, 7, 0.2);
+            color: #d39e00;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        [data-bs-theme="dark"] .learning-badge {
+            color: #ffc107;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-   
-        <div class="navb d-flex justify-content-center align-items-center py-3 mb-4 position-sticky top-0 z-3">
-            <!-- Centered pill container -->
-            <div class="d-flex align-items-center gap-3 px-4 py-2 bg-white rounded-pill shadow-sm">
+    <div class="container-fluid px-0">
+        <div class="navb d-flex justify-content-center align-items-center py-3 position-sticky top-0 z-3">
+            <div class="d-flex align-items-center gap-3 px-4 py-2 bg-white rounded-pill shadow-sm transition-colors" id="nav-container">
                 <a href="#home" class="text-decoration-none text-dark fw-semibold"> Chalitha Laksahan</a>
-                <div class="d-flex gap-2">
-                    <a href="#project" class="btn btn-sm px-3">Projects</a>
-                    <a href="#about" class="btn btn-sm px-3">About</a>
-                    <a href="#contact" class="btn btn-sm px-3">Contact</a>
+                <div class="d-flex gap-1 align-items-center">
+                    <a href="#project" class="btn btn-sm px-3 text-body">Projects</a>
+                    <a href="#about" class="btn btn-sm px-3 text-body">About</a>
+                    <a href="#contact" class="btn btn-sm px-3 text-body">Contact</a>
+                    <div class="vr mx-2"></div>
+                    <button id="themeToggle" class="btn btn-sm px-2 text-body rounded-circle" title="Toggle Dark Mode">
+                        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+                    </button>
                 </div>
             </div>
         </div>
     
-    <!-- -----------------------------------------------Hero------------------------------------------------------------------ -->
-    <section id="home" class="home-section position-relative">
-        <div class="hero-background"></div>
-        <div id="particles-js"></div>
-        
-        <div class="text-center border-bottom pb-5">
-            <!-- Status Badge -->
-            <div class="status-badge" data-aos="fade-down">
-                <span class="status-indicator"></span>
-                Available for Opportunities
-            </div>
+        <section id="home" class="home-section border-bottom">
+            <div class="hero-bg-shape"></div>
+            <div id="particles-js"></div>
             
-            <h1 class="display-4 fw-bold text-body-emphasis mb-3" data-aos="fade-up">Chalitha Laksahan</h1>
-            <p class="lead mb-2" data-aos="fade-up" data-aos-delay="100">Aspiring Software Engineer</p>
-            <p class="text-muted mb-4" data-aos="fade-up" data-aos-delay="200">
-                Java Developer • Web Enthusiast • Problem Solver
-            </p>
+            <div class="container position-relative z-1 pt-4 pb-5">
+                <div class="row align-items-center g-5">
+                    
+                    <div class="col-lg-7 text-center text-lg-start">
+                        <div class="status-badge" data-aos="fade-down">
+                            <span class="status-indicator"></span>
+                            Available for Opportunities
+                        </div>
+                        
+                        <h1 class="display-4 fw-bold text-body-emphasis mb-3" data-aos="fade-up">Chalitha Laksahan</h1>
+                        <p class="lead mb-2" data-aos="fade-up" data-aos-delay="100">Aspiring Software Engineer</p>
+                        <p class="text-muted mb-4" data-aos="fade-up" data-aos-delay="200">
+                            Java Developer • Web Enthusiast • Problem Solver
+                        </p>
 
-            <!-- Stats Section -->
-            <div class="stats-container" data-aos="fade-up" data-aos-delay="300">
-                <div class="row justify-content-center g-3">
-                    <div class="col-6 col-md-2">
-                        <div class="stat-box">
-                            <p class="stat-number">3+</p>
-                            <p class="stat-label">Projects</p>
+                        <div class="stats-container" data-aos="fade-up" data-aos-delay="300">
+                            <div class="row justify-content-center justify-content-lg-start g-3">
+                                <div class="col-4 col-md-3">
+                                    <div class="stat-box text-center">
+                                        <p class="stat-number">3+</p>
+                                        <p class="stat-label">Projects</p>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-md-3">
+                                    <div class="stat-box text-center">
+                                        <p class="stat-number">7+</p>
+                                        <p class="stat-label">Tech Skills</p>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-md-3">
+                                    <div class="stat-box text-center">
+                                        <p class="stat-number">100%</p>
+                                        <p class="stat-label">Committed</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-6 col-md-2">
-                        <div class="stat-box">
-                            <p class="stat-number">7+</p>
-                            <p class="stat-label">Technologies</p>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-2">
-                        <div class="stat-box">
-                            <p class="stat-number">100%</p>
-                            <p class="stat-label">Committed</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-8 mx-auto">
-                <p class="lead mb-4" data-aos="fade-up" data-aos-delay="400">
-                    Passionate about creating elegant solutions to complex problems. Currently focused on mastering Java and modern web technologies.
-                </p>
-                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5" data-aos="fade-up" data-aos-delay="500">
-                    <a href="#project">
-                        <button type="button" class="btn btn-primary-custom">
-                            <i class="bi bi-code-slash"></i> View My Work
-                        </button>
-                    </a>
-                    <a href="assets/cv/Trainee Software Engineer - Chalitha Laksahan.pdf" download>
-                        <button type="button" class="btn btn-outline-custom">
-                            <i class="bi bi-download"></i> Download CV
-                        </button>
-                    </a>
+                        <p class="lead mb-4" data-aos="fade-up" data-aos-delay="400">
+                            Passionate about creating elegant solutions to complex problems. Currently focused on mastering Java and modern web technologies.
+                        </p>
+                        
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start mb-4" data-aos="fade-up" data-aos-delay="500">
+                            <a href="#project">
+                                <button type="button" class="btn btn-primary-custom w-100 w-sm-auto">
+                                    <i class="bi bi-code-slash"></i> View My Work
+                                </button>
+                            </a>
+                            <a href="assets/cv/Trainee Software Engineer - Chalitha Laksahan.pdf" download>
+                                <button type="button" class="btn btn-outline-custom w-100 w-sm-auto">
+                                    <i class="bi bi-download"></i> Download CV
+                                </button>
+                            </a>
+                        </div>
+                        
+                        <div data-aos="fade-up" data-aos-delay="600">
+                            <div class="d-flex gap-2 justify-content-center justify-content-lg-start">
+                                <a href="https://www.linkedin.com/in/chalitha-laksahan/" target="_blank" rel="noopener noreferrer" 
+                                   class="btn btn-sm btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                                    <i class="bi bi-linkedin fs-5"></i>
+                                </a>
+                                <a href="https://github.com/chalithalaksahan" target="_blank" rel="noopener noreferrer"
+                                   class="btn btn-sm btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                                    <i class="bi bi-github fs-5"></i>
+                                </a>
+                                <a href="mailto:spclaksahan@gmail.com" target="_blank" rel="noopener noreferrer"
+                                   class="btn btn-sm btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                                    <i class="bi bi-envelope fs-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 text-center mt-5 mt-lg-0" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="hero-img-wrapper d-inline-block">
+                            <div class="hero-glow"></div>
+                            <img src="assets/img/chalitha-laksahan.webp" alt="Chalitha Laksahan" class="img-fluid rounded-circle" style="max-width: 320px; aspect-ratio: 1/1; object-fit: cover;">
+                        </div>
+                    </div>
+
                 </div>
                 
-                <!-- Social Links -->
-                <div class="mb-4" data-aos="fade-up" data-aos-delay="600">
-                    <small class="text-muted d-block mb-2">Connect with me:</small>
-                    <div class="d-flex gap-2 justify-content-center">
-                        <a href="https://www.linkedin.com/in/chalitha-laksahan/" target="_blank" rel="noopener noreferrer" 
-                           class="btn btn-sm btn-outline-dark rounded-circle" style="width: 42px; height: 42px; padding: 10px;">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/chalithalaksahan" target="_blank" rel="noopener noreferrer"
-                           class="btn btn-sm btn-outline-dark rounded-circle" style="width: 42px; height: 42px; padding: 10px;">
-                            <i class="bi bi-github"></i>
-                        </a>
-                        <a href="mailto:spclaksahan@gmail.com" target="_blank" rel="noopener noreferrer"
-                           class="btn btn-sm btn-outline-dark rounded-circle" style="width: 42px; height: 42px; padding: 10px;">
-                            <i class="bi bi-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="overflow-hidden position-relative" data-aos="zoom-in" data-aos-delay="700">
-                <div class="container px-5">
-                    <img src="assets/img/cover.jpg" class="img-fluid border rounded-3 shadow-lg mb-4"
-                        alt="Chalitha Laksahan working on development projects" width="700" height="500" loading="lazy">
-                </div>
-                
-                <!-- Scroll Indicator -->
                 <div class="scroll-indicator" onclick="document.getElementById('project').scrollIntoView({behavior: 'smooth'})">
-                    <i class="bi bi-chevron-down"></i>
+                    <i class="bi bi-chevron-down fs-3"></i>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- ------------------------------------------------Project-------------------------------------------------------------- -->
-    <section id="project" class="project-section">
-        <div class="album bg-body-tertiary">
+        </section>
+
+        <section id="project" class="py-5 bg-body-tertiary">
             <div class="container">
-                <div class="text-center mb-5 mt-5">
+                <div class="text-center mb-5 mt-4">
                     <h2 class="fw-bold" data-aos="fade-up">My Projects</h2>
                     <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Building functional solutions, one project at a time</p>
                 </div>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
                     
                     <div class="col" data-aos="zoom-in-up">
-                        <div class="card shadow-sm project-card">
+                        <div class="card shadow-sm project-card h-100 bg-body">
                             <img src="assets/img/AI Mock Interview Platform.png" alt="AI-Powered Mock Interview Platform" loading="lazy">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">AI-Powered Mock Interview Platform </h5>
-                                <p class="card-text flex-grow-1">Our platform solves HR inefficiencies by using AI to automate CV screening and initial interviews, significantly reducing the time and cost spent on manual recruitment. As Team Leader, I spearheaded the integration of a Spring Boot backend and AI services to transform a high-volume hiring bottleneck into a streamlined, data-driven pipeline.</p>
+                                <h5 class="card-title fw-bold">AI-Powered Mock Interview Platform</h5>
+                                <p class="card-text flex-grow-1 text-secondary">Our platform solves HR inefficiencies by using AI to automate CV screening and initial interviews, significantly reducing the time and cost spent on manual recruitment. As Team Leader, I spearheaded the integration of a Spring Boot backend and AI services to transform a high-volume hiring bottleneck into a streamlined, data-driven pipeline.</p>
                                 <div class="d-flex justify-content-start align-items-center gap-2 mt-2">
-                                     <a  target="_blank" rel="noopener noreferrer">
+                                     <a target="_blank" rel="noopener noreferrer">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">
-                                            <i class="bi bi-github"></i> Group Project
+                                            <i class="bi bi-people-fill"></i> Group Project
                                         </button>
                                     </a>
                                 </div>
                                 <div class="mt-3">
-                                    <span class="badge bg-secondary me-1">Spring Boot</span>
-                                    <span class="badge bg-secondary me-1">Python</span>
-                                    <span class="badge bg-secondary me-1">Angular</span>
-                                    <span class="badge bg-secondary me-1">AI</span>
-                                    <span class="badge bg-secondary me-1">Three.js</span>
-                                    <span class="badge bg-secondary me-1">Supabase</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">Spring Boot</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">Python</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">Angular</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">AI</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">Three.js</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col" data-aos="zoom-in-up">
-                        <div class="card shadow-sm project-card">
+
+                    <div class="col" data-aos="zoom-in-up" data-aos-delay="100">
+                        <div class="card shadow-sm project-card h-100 bg-body">
                             <img src="assets/img/Clothify_Pos_System.png" alt="POS System For Cloth Shop" loading="lazy">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">POS System For Cloth Shop</h5>
-                                <p class="card-text flex-grow-1">A JavaFX-based POS system for clothing stores streamlines sales with a modern, responsive interface. It efficiently manages transactions, customer data, and inventory variants like size and color. Built on Java, it delivers reliable, cross-platform performance with rich visual controls.</p>
+                                <h5 class="card-title fw-bold">POS System For Cloth Shop</h5>
+                                <p class="card-text flex-grow-1 text-secondary">A JavaFX-based POS system for clothing stores streamlines sales with a modern, responsive interface. It efficiently manages transactions, customer data, and inventory variants like size and color. Built on Java, it delivers reliable, cross-platform performance with rich visual controls.</p>
                                 <div class="d-flex justify-content-start align-items-center gap-2 mt-2">
                                     <a href="https://github.com/chalithalaksahan/clothify-store-pos" target="_blank" rel="noopener noreferrer">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">
@@ -184,20 +508,21 @@
                                     </a>
                                 </div>
                                 <div class="mt-3">
-                                    <span class="badge bg-secondary me-1">Java</span>
-                                    <span class="badge bg-secondary me-1">JavaFx</span>
-                                    <span class="badge bg-secondary me-1">OOP</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">Java</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">JavaFx</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">OOP</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">MySQL</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col" data-aos="zoom-in-up">
-                        <div class="card shadow-sm project-card">
+                    <div class="col" data-aos="zoom-in-up" data-aos-delay="200">
+                        <div class="card shadow-sm project-card h-100 bg-body">
                             <img src="assets/img/Movie_Showcase_Website.png" alt="Movie Showcase Website" loading="lazy">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">Movie Showcase Website</h5>
-                                <p class="card-text flex-grow-1">This project involved designing and developing a complete web-based platform designed to showcase cinema. The application provides users with an intuitive, visually appealing interface to discover trending movies, explore different genres, view detailed cast information, and read synopses.</p>
+                                <h5 class="card-title fw-bold">Movie Showcase Website</h5>
+                                <p class="card-text flex-grow-1 text-secondary">This project involved designing and developing a complete web-based platform designed to showcase cinema. The application provides users with an intuitive, visually appealing interface to discover trending movies, explore different genres, view detailed cast information, and read synopses.</p>
                                 <div class="d-flex justify-content-start align-items-center gap-2 mt-2">
                                     <a href="https://github.com/chalithalaksahan/movieWebApplication" target="_blank" rel="noopener noreferrer">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">
@@ -206,10 +531,10 @@
                                     </a>
                                 </div>
                                 <div class="mt-3">
-                                    <span class="badge bg-secondary me-1">HTML5</span>
-                                    <span class="badge bg-secondary me-1">Tailwind CSS</span>
-                                    <span class="badge bg-secondary me-1">JavaScript</span>
-                                    <span class="badge bg-secondary me-1">Rest API</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">HTML5</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">Tailwind CSS</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">JavaScript</span>
+                                    <span class="badge text-bg-secondary me-1 mb-1">REST API</span>
                                 </div>
                             </div>
                         </div>
@@ -217,132 +542,190 @@
                     
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- -----------------------------------------------About------------------------------------------------------------------->
-    <hr class="my-4">
-    <section id="about" class="about-section">
-        <div data-aos="zoom-in" class="container">
-            <div class="row align-items-center">
-                <!-- Image Column -->
-                <div class="col-lg-5 col-md-6 mb-4 mb-md-0">         
-                    <div class="profile-image">
-                        <div class="text-center"> 
-                            <h6 class="name-title">Chalitha Laksahan</h6>
-                            <div class="profile-image-wrapper">
-                                <div class="profile-image-border"></div>
-                                <img class="image" src="assets/img/chalitha-laksahan.webp" alt="Chalitha Laksahan profile" height="250" loading="lazy">
+        </section>
+        
+        <section id="about" class="py-5">
+            <div class="container py-4">
+                <div class="row align-items-center" data-aos="fade-up">
+                    <div class="col-lg-5 mb-5 mb-lg-0 text-center">         
+                        <div class="profile-image-wrapper mb-3">
+                            <div class="profile-image-border"></div>
+                            <img class="image img-fluid" src="assets/img/chalitha-laksahan.webp" alt="Chalitha Laksahan" style="max-width: 250px; aspect-ratio: 1/1; object-fit: cover;" loading="lazy">
+                        </div>
+                        <h4 class="fw-bold mt-3">Chalitha Laksahan</h4>
+                        <p class="text-secondary mb-3">Aspiring Software Engineer</p>
+                        <span class="learning-badge d-inline-block">
+                            <i class="bi bi-mortarboard-fill"></i> Currently Learning Spring Boot & Angular
+                        </span>
+                    </div>
+              
+                    <div class="col-lg-7">
+                        <h2 class="fw-bold mb-4">About Me</h2>
+                        <p class="text-secondary lh-lg mb-4">
+                            Aspiring software engineer specializing in Java development and scalable web technologies. I build clean, maintainable applications rooted in strong OOP principles. As an adaptable and continuous learner, I am highly focused on industry trends specifically the integration of Artificial Intelligence into modern software. I love bridging the gap between robust backend architectures and innovative AI features to solve real-world problems.
+                        </p>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h5 class="fw-bold"><i class="bi bi-braces text-primary"></i> Technical Skills</h5>
+                                <div class="d-flex flex-wrap gap-2 mt-3">
+                                    <span class="badge border border-secondary text-body rounded-pill py-2 px-3">Java</span>
+                                    <span class="badge border border-secondary text-body rounded-pill py-2 px-3">JavaScript</span>
+                                    <span class="badge border border-secondary text-body rounded-pill py-2 px-3">Tailwind CSS</span>
+                                    <span class="badge border border-secondary text-body rounded-pill py-2 px-3">Git</span>
+                                    <span class="badge border border-secondary text-body rounded-pill py-2 px-3">Bootstrap</span>
+                                </div>
                             </div>
-                            <p class="align-middle mt-3">Aspiring Software Engineer</p>
-                            <div class="mt-2">
-                                <span class="learning-badge">
-                                    <i class="bi bi-mortarboard"></i> Currently Learning Spring Boot & Angular
-                                </span>
+                            <div class="col-md-6">
+                                <h5 class="fw-bold"><i class="bi bi-book text-primary"></i> Exploring Now</h5>
+                                <div class="d-flex flex-wrap gap-2 mt-3">
+                                    <span class="badge border border-primary text-body rounded-pill py-2 px-3">Spring Boot</span>
+                                    <span class="badge border border-primary text-body rounded-pill py-2 px-3">Angular</span>
+                                    <span class="badge border border-primary text-body rounded-pill py-2 px-3">Python</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-          
-                <!-- Content Column -->
-                <div class="col-lg-7 col-md-6">
-                    <h2 class="mb-4">About Me</h2>
-                    <div class="content-block">
-                        Aspiring software engineer specializing in Java development and scalable web technologies. I build clean, maintainable applications rooted in strong OOP principles. As an adaptable and continuous learner, I am highly focused on industry trends specifically the integration of Artificial Intelligence into modern software. I love bridging the gap between robust backend architectures and innovative AI features to solve real-world problems.
+            </div>
+        </section>
+        
+        <section id="contact" class="py-5 bg-body-tertiary border-top">
+            <div class="container py-4">
+                <div class="card border-0 shadow-sm rounded-4 text-center p-5 bg-body" data-aos="zoom-in">
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <img src="assets/img/chalitha-laksahan.webp" alt="Chalitha Laksahan" class="rounded-circle border border-4 border-secondary-subtle" width="100" height="100" style="object-fit: cover;" loading="lazy">
+                        </div>
+                        <h2 class="fw-bold mb-2">Let's Connect</h2>
+                        <h5 class="text-primary mb-4">Open to Opportunities & Collaboration</h5>
+                        <p class="text-secondary mx-auto mb-5" style="max-width: 600px;">
+                            I'm eager to learn and grow as a software engineer. Whether you're looking for an enthusiastic junior developer, want to discuss technology, or have an interesting project idea, I'd love to hear from you.
+                        </p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a href="mailto:spclaksahan@gmail.com" class="btn btn-primary-custom d-flex align-items-center gap-2">
+                                <i class="bi bi-envelope-fill"></i> Email Me
+                            </a>
+                            <a href="https://www.linkedin.com/in/chalitha-laksahan/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom d-flex align-items-center gap-2">
+                                <i class="bi bi-linkedin"></i> LinkedIn
+                            </a>
+                            <a href="https://github.com/chalithalaksahan" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom d-flex align-items-center gap-2">
+                                <i class="bi bi-github"></i> GitHub
+                            </a>
+                        </div>
                     </div>
-                    
-                    <h5 class="mt-4">Technical Skills</h5>
-                    <div class="tech-list">
-                        <span class="tech-item">Java</span>
-                        <span class="tech-item">JavaScript</span>
-                        <span class="tech-item">Tailwind CSS</span>
-                        <span class="tech-item">Git</span>
-                        <span class="tech-item">Bootstrap</span>
-                        <span class="tech-item">Responsive Design</span>
-                    </div>
-                    
-                    <h5 class="mt-4">Currently Learning</h5>
-                    <div class="tech-list">
-                        <span class="tech-item">Spring Boot</span>
-                        <span class="tech-item">Angular</span>
-                        <span class="tech-item">Python</span>
-                    </div>
-                    
-                    <h5 class="mt-4">What Drives Me</h5>
-                    <p>Driven by a commitment to continuous learning, I specialize in developing high-impact software, ranging from AI-powered HR tools to standalone retail management systems. I am passionate about exploring new technologies to streamline complex workflows, always prioritizing efficient architecture and delivering tangible value through clean, maintainable code.</p>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- ------------------------------------------------Contact------------------------------------------------------------------>
-    <hr class="my-4">
-    <section id="contact" class="about-section">
-        <div data-aos="fade-up" class="card text-center custom-card">
-            <div class="card-img">
-                <img src="assets/img/chalitha-laksahan.webp" alt="Chalitha Laksahan contact section" loading="lazy">
+        </section>
+        
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-4 px-4 border-top bg-body">
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="text-body-secondary">© 2025 Chalitha Laksahan. All rights reserved.</span>
             </div>
-            <div class="card-body">
-                <h2 class="card-title">Let's Connect</h2>
-                <h3 class="card-text">Open to Opportunities & Collaboration</h3>
-                <p>I'm eager to learn and grow as a software engineer. Whether you're looking for an enthusiastic junior developer, want to discuss technology, or have an interesting project idea, I'd love to hear from you. Feel free to reach out through any of the channels below.</p>
-                <div class="d-flex gap-2 justify-content-center flex-wrap">
-                    <a href="mailto:spclaksahan@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
-                        <i class="bi bi-envelope"></i> Email Me
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3">
+                    <a class="text-body-secondary fs-5" href="https://www.linkedin.com/in/chalitha-laksahan/" target="_blank" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
                     </a>
-                    <a href="assets/cv/Trainee Software Engineer - Chalitha Laksahan.pdf" download class="btn btn-dark">
-                        <i class="bi bi-download"></i> Download CV
+                </li>
+                <li class="ms-3">
+                    <a class="text-body-secondary fs-5" href="https://github.com/chalithalaksahan" target="_blank" aria-label="GitHub">
+                        <i class="bi bi-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/chalitha-laksahan/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">
-                        <i class="bi bi-linkedin"></i> LinkedIn
-                    </a>
-                    <a href="https://github.com/chalithalaksahan" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">
-                        <i class="bi bi-github"></i> GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ------------------------------------------------Footer------------------------------------------------------------------>
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1" aria-label="Home">
-                <svg class="bi" width="30" height="24" aria-hidden="true">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-            </a>
-            <span class="mb-3 mb-md-0 text-body-secondary">© 2025 Chalitha Laksahan. All rights reserved.</span>
-        </div>
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3">
-                <a class="text-body-secondary" href="https://www.linkedin.com/in/chalitha-laksahan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="bi bi-linkedin"></i>
-                </a>
-            </li>
-            <li class="ms-3">
-                <a class="text-body-secondary" href="https://github.com/chalithalaksahan" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="bi bi-github"></i>
-                </a>
-            </li>
-        </ul>
-    </footer>
+                </li>
+            </ul>
+        </footer>
     </div>
     
-    <!-- Back to Top Button -->
     <button onclick="scrollToTop()" id="backToTop" title="Go to top" aria-label="Back to top">
         <i class="bi bi-arrow-up"></i>
     </button>
     
-    <!-- Particles.js CDN -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="assets/js/app.js"></script>
-    
-   
-</body>
+        
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
 
+        // Back to top functionality
+        window.onscroll = function() {
+            var backToTopBtn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- Dark Mode Logic ---
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const htmlElement = document.documentElement;
+
+        // Check local storage for saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-bs-theme', savedTheme);
+            updateIcon(savedTheme);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('bi-moon-stars-fill');
+                themeIcon.classList.add('bi-sun-fill');
+                themeToggle.classList.add('text-warning');
+            } else {
+                themeIcon.classList.remove('bi-sun-fill');
+                themeIcon.classList.add('bi-moon-stars-fill');
+                themeToggle.classList.remove('text-warning');
+            }
+        }
+        
+        // Ensure you have initialized particles.js in your app.js or place config here.
+        // Example fallback if app.js is missing:
+        if(window.particlesJS) {
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {"value": 40, "density": {"enable": true, "value_area": 800}},
+                    "color": {"value": "#667eea"},
+                    "shape": {"type": "circle"},
+                    "opacity": {"value": 0.3, "random": false},
+                    "size": {"value": 3, "random": true},
+                    "line_linked": {"enable": true, "distance": 150, "color": "#667eea", "opacity": 0.2, "width": 1},
+                    "move": {"enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false}
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {"enable": true, "mode": "grab"},
+                        "onclick": {"enable": true, "mode": "push"},
+                        "resize": true
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+    </script>
+</body>
 </html>
