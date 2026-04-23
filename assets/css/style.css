@@ -1,5 +1,4 @@
- /* Base & Theme Transitions */
-        html {
+  html {
             scroll-behavior: smooth;
         }
         body {
@@ -260,17 +259,7 @@
             display: inline-block;
         }
         
-        .profile-image-border {
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            animation: rotate 3s linear infinite;
-            z-index: -1;
-        }
+       
         
         @keyframes rotate {
             from { transform: rotate(0deg); }

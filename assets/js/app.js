@@ -1,7 +1,4 @@
-console.log("js loaded");
-AOS.init();
-
- // Initialize AOS animations
+// Initialize AOS animations
         AOS.init({
             duration: 800,
             once: true,
