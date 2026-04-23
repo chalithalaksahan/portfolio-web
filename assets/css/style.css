@@ -312,3 +312,8 @@
         [data-bs-theme="dark"] .learning-badge {
             color: #ffc107;
         }
+
+        .typewrite{
+            text-decoration: none;
+            color: #f8f9fa;
+        }
