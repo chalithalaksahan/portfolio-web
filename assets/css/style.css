@@ -40,16 +40,93 @@
         }
 
         /* Navbar Enhancements */
+        .navb {
+            padding: 0.75rem 1rem !important;
+        }
+
+        #nav-container {
+            gap: 1rem !important;
+            padding: 0.5rem 1rem !important;
+        }
+
         .navb a.btn {
             border-radius: 20px;
             transition: background-color 0.2s;
+            padding: 0.4rem 0.75rem !important;
+            font-size: 0.9rem;
         }
+
         [data-bs-theme="light"] .navb a.btn:hover {
             background-color: #f0f0f0;
         }
         [data-bs-theme="dark"] .navb a.btn:hover {
             background-color: #343a40;
             color: white;
+        }
+
+        .navb .btn-sm {
+            min-height: 36px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navb .vr {
+            margin: 0 0.5rem !important;
+            height: 24px;
+        }
+
+        #themeToggle {
+            min-width: 36px;
+            min-height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Mobile responsive navbar */
+        @media (max-width: 768px) {
+            .navb {
+                padding: 0.5rem 0.5rem !important;
+            }
+
+            #nav-container {
+                gap: 0.5rem !important;
+                padding: 0.4rem 0.6rem !important;
+            }
+
+            .navb a.btn {
+                padding: 0.35rem 0.6rem !important;
+                font-size: 0.85rem;
+            }
+
+            .navb .vr {
+                display: none;
+            }
+
+            #themeToggle {
+                min-width: 32px;
+                min-height: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navb {
+                padding: 0.5rem 0.25rem !important;
+            }
+
+            #nav-container {
+                gap: 0.25rem !important;
+                padding: 0.3rem 0.4rem !important;
+            }
+
+            .navb a.btn {
+                padding: 0.3rem 0.5rem !important;
+                font-size: 0.8rem;
+            }
+
+            .navb .btn-sm {
+                min-height: 32px;
+            }
         }
         
         /* Hero Enhancements */
