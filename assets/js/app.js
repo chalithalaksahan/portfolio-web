@@ -24,12 +24,13 @@
         const themeIcon = document.getElementById('themeIcon');
         const htmlElement = document.documentElement;
 
-        // Check local storage for saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            htmlElement.setAttribute('data-bs-theme', savedTheme);
-            updateIcon(savedTheme);
+        // Check local storage for saved theme; default to dark mode on first load.
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        htmlElement.setAttribute('data-bs-theme', savedTheme);
+        if (!localStorage.getItem('theme')) {
+            localStorage.setItem('theme', savedTheme);
         }
+        updateIcon(savedTheme);
 
         themeToggle.addEventListener('click', () => {
             const currentTheme = htmlElement.getAttribute('data-bs-theme');
